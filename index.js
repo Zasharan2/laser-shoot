@@ -276,6 +276,15 @@ function renderTargetPoint() {
     ctx.stroke();
 }
 
+function renderLaserShootPoint() {
+    ctx.beginPath();
+    ctx.strokeStyle = "#00ff00ff";
+    ctx.lineWidth = 1 * scale;
+    ctx.moveTo(scale * displayWidth / 2, scale * displayHeight - (4 * scale));
+    ctx.lineTo(scale * displayWidth / 2, scale * displayHeight);
+    ctx.stroke();
+}
+
 function renderDistance() {
     ctx.beginPath();
     ctx.fillStyle = "#ffffffff";
@@ -381,6 +390,7 @@ function main() {
     renderMirrorList();
     renderBorderList();
     renderTargetPoint();
+    renderLaserShootPoint();
     if (achievedPoint != null) {
         renderDistance();
     }
