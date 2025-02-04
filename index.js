@@ -7,7 +7,7 @@ var keys = [];
 
 document.addEventListener("keydown", function (event) {
     keys[event.key] = true;
-    if ([" "].indexOf(event.key) > -1) {
+    if ([" ", "Control"].indexOf(event.key) > -1) {
         event.preventDefault();
     }
     if (keys["Enter"] && laserState == LASERSTATE.OFF) {
