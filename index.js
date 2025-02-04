@@ -12,6 +12,9 @@ document.addEventListener("keydown", function (event) {
     }
     if (keys["Enter"] && laserState == LASERSTATE.OFF) {
         laserState = LASERSTATE.STATIC;
+    } else if (keys["Enter"] && laserState != LASERSTATE.OFF) {
+        achievedPoint = null;
+        laserState = LASERSTATE.OFF;
     }
     if (keys[" "] && laserState == LASERSTATE.STATIC) {
         laserState = LASERSTATE.LIVE;
