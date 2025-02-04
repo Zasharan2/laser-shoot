@@ -1,0 +1,17 @@
+body {
+    background-color: #004444ff;
+    color: #ffffffff;
+    font-family: 'Comic Sans MS', 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+a {
+    color: #ffffffff;
+}
+
+p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 45em;
+}
