@@ -49,7 +49,7 @@ window.addEventListener("mousedown", function(event) {
     mouseDown = true;
     mouseButton = event.buttons;
 
-    if (laserState != LASERSTATE.STATIC) {
+    if (laserState != LASERSTATE.STATIC && !hovering) {
         mirrorList.push(new Mirror(new Vector2(placeMirror.pos.x, placeMirror.pos.y), placeMirror.theta));
     }
 });
@@ -239,6 +239,18 @@ function hoverDeleteMirror() {
     }
 }
 
+function hoverMoveMirror() {
+    for (var i = 0; i < mirrorList.length; i++) {
+        if (Math.sqrt(Math.pow(mouseX - mirrorList[i].pos.x, 2) + Math.pow(mouseY - mirrorList[i].pos.y, 2)) < (mirrorWidth / 2) * scale) {
+            hovering = true;
+            if (mouseDown) {
+                mirrorList[i].pos.x = mouseX;
+                mirrorList[i].pos.y = mouseY;
+            }
+        }
+    }
+}
+
 function hoverTurnMirror() {
     for (var i = 0; i < mirrorList.length; i++) {
         if (Math.sqrt(Math.pow(mouseX - mirrorList[i].pos.x, 2) + Math.pow(mouseY - mirrorList[i].pos.y, 2)) < (mirrorWidth / 2) * scale) {
@@ -386,6 +398,7 @@ function main() {
             hoverPlaceMirror();
         }
         hovering = false;
+        hoverMoveMirror();
         hoverDeleteMirror();
         hoverTurnMirror();
         checkBorderHover();
